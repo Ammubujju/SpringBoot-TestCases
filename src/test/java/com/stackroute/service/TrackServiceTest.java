@@ -38,7 +38,7 @@ public class TrackServiceTest {
         MockitoAnnotations.initMocks(this);
         track = new Track();
         track.setId(101);
-        track.setName("VVC");
+        track.setName("ammu");
         track.setComment("IBM");
         list = new ArrayList<>();
         list.add(track);
@@ -80,10 +80,10 @@ public class TrackServiceTest {
 
 
         when(trackRepository.existsById(track.getId())).thenReturn(true);
-        track.setName("Vishnu");
+        track.setName("Kanapuram");
         Track track1=trackService.updateTrack(track);
         when(trackRepository.save((Track)any())).thenReturn(track1);
-        Assert.assertEquals("Vishnu",track1.getName());
+        Assert.assertEquals("Kanapuram",track1.getName());
     }
 
     @Test(expected = TrackNotFoundException.class)
